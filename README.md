@@ -1,115 +1,70 @@
-# MIMIC-III-ICU-Mortality-Risk-Analysis
+🏥 ICU Mortality Risk Analysis with MIMIC-III
+This project analyzes ICU patient data from the MIMIC-III clinical database to uncover patterns related to mortality risk, with a focus on age, gender, ICU type, and vital sign abnormalities.
 
-## 1. Background and Overview
+🔍 Project Overview
+Early detection of ICU mortality risk factors is crucial to improving outcomes in critical care. Using Python (pandas, seaborn, matplotlib) and Power BI, we:
 
-Intensive Care Units (ICUs) are high-stakes environments where early identification of at-risk patients is crucial to prevent mortality. This project uses the publicly available **MIMIC-III dataset** to analyze clinical data from ICU stays and uncover patterns associated with increased mortality. The goal is to derive insights that could assist clinicians and data scientists in understanding ICU trends and building early warning models for critical care.
+Conducted exploratory data analysis (EDA)
 
-We focus on:
+Engineered mortality flags and age groups
 
-* Patient demographics and ICU admissions
-* Vital signs and lab measures within the first 24 hours of ICU stay
-* Mortality prediction trends based on these early indicators
-* Disparities in mortality across age groups, genders, and ICU types
+Visualized trends by age, gender, and ICU unit
 
-This project simulates how a hospital data team might analyze patient outcomes to improve quality of care and reduce ICU mortality rates.
+Created a dashboard-ready summary dataset
 
----
+Exported insights to an interactive Power BI dashboard
 
-## 2. Data Structure Overview
+📁 Files Included
+File	Description
+ICU_Mortality_Analysis_Enhanced.ipynb	Jupyter Notebook with full analysis, visualizations, and feature engineering
+dashboard_summary.csv	Clean dataset ready for Power BI dashboarding
+ICU_Mortality_Dashboard.pbix	💡 Interactive Power BI dashboard file
+README.md	This project overview and documentation
 
-We utilized the following tables from MIMIC-III:
+📊 Key Insights
+Age ≥ 75 had the highest ICU mortality (>17%)
 
-* `PATIENTS.csv`: Demographics, date of birth/death
-* `ICUSTAYS.csv`: ICU admission/discharge timestamps, stay IDs
-* `CHARTEVENTS.csv`: Time-stamped vitals and lab values
+Males had slightly higher mortality than females
 
-### ER Diagram
+MICU and SICU showed contrasting death rates
 
-```
-PATIENTS (SUBJECT_ID, GENDER, DOB, DOD)  
-   |
-   +-- ICUSTAYS (SUBJECT_ID, HADM_ID, ICUSTAY_ID, INTIME, OUTTIME, LOS)  
-         |
-         +-- CHARTEVENTS (ICUSTAY_ID, ITEMID, CHARTTIME, VALUENUM, VALUEUOM)
-```
+Patients with early hypotension or high heart rate showed elevated risk
 
----
+🛠 Tech Stack
+Python (pandas, matplotlib, seaborn)
 
-## 3. Executive Summary
+Power BI
 
-* Patients aged **75+** had the highest in-hospital ICU mortality rate (\~18%), with **non-surgical ICUs** showing significantly higher rates.
-* Abnormal early vitals (SBP < 90 mmHg, HR > 110 bpm) in the first 24 hours were strong indicators of higher mortality.
-* **Female patients** had a slightly lower ICU mortality rate compared to males.
-* ICU stays with **early hypotension** or abnormal oxygen saturation (< 90%) correlated with a **3x increase in death risk**.
+Jupyter Notebook
 
-These findings highlight the potential of using first-day clinical signals to flag patients at higher risk.
+MIMIC-III Dataset (Beth Israel Deaconess Medical Center)
 
----
+📈 Power BI Dashboard
+Visualizes:
 
-## 4. Insights Deep Dive
+Mortality trends by gender
 
-### Insight 1: Age-Based Mortality
+ICU-specific risk distributions
 
-```python
-sns.barplot(data=summary_df, x='Age_Group', y='Mortality_Rate')
-plt.title('ICU Mortality Rate by Age Group')
-```
+Patient age histograms
 
-* Clear upward trend with age.
+Combined view of ICU admissions and outcomes
 
-### Insight 2: Vital Signs and Risk
+📥 Download Dashboard: ICU_Mortality_Dashboard.pbix
 
-```python
-sns.boxplot(data=icu_vitals, x='Mortality', y='HeartRate')
-plt.title('Heart Rate Distribution by Outcome')
-```
+🚀 How to Run
+Clone the repo
 
-* Patients who died had higher median HRs in the first 24h.
+Launch ICU_Mortality_Analysis_Enhanced.ipynb in Jupyter
 
-### Insight 3: Gender Comparison
+Export dashboard_summary.csv
 
-```python
-sns.barplot(data=gender_summary, x='Gender', y='Mortality_Rate')
-```
+Open ICU_Mortality_Dashboard.pbix in Power BI Desktop
 
-* Slightly higher mortality in male patients.
+Refresh the data and explore!
 
-### Insight 4: ICU Type Influence
+📌 Note: This analysis uses a sample from MIMIC-III and is meant for educational and prototype purposes. Data is anonymized and access requires credentialed approval via PhysioNet.
 
-```python
-sns.barplot(data=icu_type_summary, x='ICU_Type', y='Mortality_Rate')
-```
+Author: Lakshmi Tejaswini Chandra Pampana
+GitHub: @chandraplt1
 
-* MICU and SICU had contrasting trends, important for triage decisions.
-
----
-
-## 5. Recommendations
-
-* **Early Risk Scoring**: Hospitals can build risk scores using patient age and first-day vitals to triage ICU care.
-* **Monitor Hypotensive Events**: Introduce EHR alerts for systolic BP < 90 mmHg in first 24h.
-* **Prioritize Older Adults**: Design targeted interventions for patients aged 65+ to reduce in-hospital mortality.
-* **Further NLP Analysis**: Investigate clinical notes in MIMIC for sentiment or symptom patterns in high-risk groups.
-
----
-
-## Links
-
-* 📊 [Interactive Dashboard](https://github.com/yourprofile/mimic-icu-dashboard)
-* 📁 [Jupyter Notebook Code](notebooks/ICU_Mortality_Analysis.ipynb)
-* 📄 [Data Dictionary](docs/mimic_data_dictionary.md)
-
----
-
-> **Note**: Data is sourced from [PhysioNet MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/) under a credentialed license.
-
-> **Caveats & Assumptions**:
-
-* Data reflects one hospital system (Beth Israel Deaconess).
-* Some variables (e.g., lab values) had missing or sparse entries.
-* We only analyzed first ICU admission per patient.
-
----
-
-**Created by:** Lakshmi Tejaswini Chandra Pampana
-**GitHub Repo:** [chandraplt1/mimic-icu-risk](https://github.com/chandraplt1/mimic-icu-risk)
