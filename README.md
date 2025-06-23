@@ -18,9 +18,9 @@ This project analyzes ICU patient data from the [MIMIC-III](https://physionet.or
 
 | File | Description |
 |------|-------------|
-| `ICU_Mortality_Analysis_Fixed.ipynb` | Full Jupyter Notebook with data cleaning, EDA, and visual insights |
+| `ICU_Mortality_Analysis.ipynb` | Full Jupyter Notebook with data cleaning, EDA, and visual insights |
 | `dashboard_summary.csv` | Cleaned summary file used for Power BI dashboard |
-| `MIMIC_ICU_Mortality.pbix` | *(to be added)* Power BI dashboard showing trends and risk segments |
+| `MIMIC_ICU_Mortality.pbix` | Power BI dashboard showing trends and risk segments |
 | `docs/mimic_data_dictionary.md` | Data dictionary explaining key fields |
 | `images/preview.png` | Repository social preview image |
 
@@ -47,7 +47,7 @@ This project analyzes ICU patient data from the [MIMIC-III](https://physionet.or
 
 ## 📈 Dashboard Preview (Power BI)
 
-The Power BI dashboard (to be added) contains:
+The Power BI dashboard  contains:
 
 - Mortality by Age Group
 - Gender Distribution & Risk
@@ -97,7 +97,7 @@ You can build your own from `dashboard_summary.csv` or download the `.pbix` file
 ## 👩‍💻 Author
 
 **Lakshmi Tejaswini Chandra Pampana**  
-[GitHub](https://github.com/chandraplt1) | [LinkedIn](https://www.linkedin.com/in/...)
+[GitHub](https://github.com/chandraplt1) | [LinkedIn](https://www.linkedin.com/in/chandraplt)
 
 ---
 
