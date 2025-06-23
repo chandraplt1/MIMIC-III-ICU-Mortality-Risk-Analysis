@@ -1,70 +1,104 @@
-🏥 ICU Mortality Risk Analysis with MIMIC-III
-This project analyzes ICU patient data from the MIMIC-III clinical database to uncover patterns related to mortality risk, with a focus on age, gender, ICU type, and vital sign abnormalities.
 
-🔍 Project Overview
-Early detection of ICU mortality risk factors is crucial to improving outcomes in critical care. Using Python (pandas, seaborn, matplotlib) and Power BI, we:
+# 🏥 MIMIC-III ICU Mortality Risk Analysis
 
-Conducted exploratory data analysis (EDA)
+This project analyzes ICU patient data from the [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) clinical database to uncover patterns in mortality risk. It provides insights through Python visualizations and a Power BI dashboard for stakeholders in healthcare analytics, clinical strategy, and policy.
 
-Engineered mortality flags and age groups
+---
 
-Visualized trends by age, gender, and ICU unit
+## 📌 Project Goals
 
-Created a dashboard-ready summary dataset
+- Identify key predictors of ICU mortality
+- Compare outcomes across gender, age groups, and ICU types
+- Leverage early vitals (within 24h) for risk estimation
+- Demonstrate healthcare data storytelling using real EHR data
 
-Exported insights to an interactive Power BI dashboard
+---
 
-📁 Files Included
-File	Description
-ICU_Mortality_Analysis_Enhanced.ipynb	Jupyter Notebook with full analysis, visualizations, and feature engineering
-dashboard_summary.csv	Clean dataset ready for Power BI dashboarding
-ICU_Mortality_Dashboard.pbix	💡 Interactive Power BI dashboard file
-README.md	This project overview and documentation
+## 📂 Files in Repository
 
-📊 Key Insights
-Age ≥ 75 had the highest ICU mortality (>17%)
+| File | Description |
+|------|-------------|
+| `ICU_Mortality_Analysis_Fixed.ipynb` | Full Jupyter Notebook with data cleaning, EDA, and visual insights |
+| `dashboard_summary.csv` | Cleaned summary file used for Power BI dashboard |
+| `MIMIC_ICU_Mortality.pbix` | *(to be added)* Power BI dashboard showing trends and risk segments |
+| `docs/mimic_data_dictionary.md` | Data dictionary explaining key fields |
+| `images/preview.png` | Repository social preview image |
 
-Males had slightly higher mortality than females
+---
 
-MICU and SICU showed contrasting death rates
+## 🧪 Data Used
 
-Patients with early hypotension or high heart rate showed elevated risk
+- `PATIENTS.csv`: Gender, birthdate, death info
+- `ADMISSIONS.csv`: Admission dates and hospital outcome
+- `ICUSTAYS.csv`: ICU admission/discharge timestamps
+- `CHARTEVENTS.csv`: Vital signs and charted observations (limited to 1M rows)
+- `D_ITEMS.csv`: Item IDs with descriptions
 
-🛠 Tech Stack
-Python (pandas, matplotlib, seaborn)
+---
 
-Power BI
+## 📊 Key Insights
 
-Jupyter Notebook
+- **Mortality increases with age**: Especially notable beyond 75 years.
+- **Males show higher ICU mortality** than females.
+- **Low systolic blood pressure (<90 mmHg)** and **high heart rate (>110 bpm)** in the first 24 hours strongly correlate with increased mortality.
+- **MICU (Medical ICU)** showed higher risk concentration than SICU (Surgical ICU).
 
-MIMIC-III Dataset (Beth Israel Deaconess Medical Center)
+---
 
-📈 Power BI Dashboard
-Visualizes:
+## 📈 Dashboard Preview (Power BI)
 
-Mortality trends by gender
+The Power BI dashboard (to be added) contains:
 
-ICU-specific risk distributions
+- Mortality by Age Group
+- Gender Distribution & Risk
+- ICU Type Comparison
+- First 24h Heart Rate & BP Analysis
+- Interactive slicers for subgroup analysis
 
-Patient age histograms
+---
 
-Combined view of ICU admissions and outcomes
+## 📦 Getting Started
 
-📥 Download Dashboard: ICU_Mortality_Dashboard.pbix
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/chandraplt1/mimic-icu-risk.git
+   cd mimic-icu-risk
+   ```
 
-🚀 How to Run
-Clone the repo
+2. Install dependencies  
+   ```bash
+   pip install pandas matplotlib seaborn
+   ```
 
-Launch ICU_Mortality_Analysis_Enhanced.ipynb in Jupyter
+3. Open the notebook  
+   Launch `ICU_Mortality_Analysis_Fixed.ipynb` and run it in Jupyter.
 
-Export dashboard_summary.csv
+---
 
-Open ICU_Mortality_Dashboard.pbix in Power BI Desktop
+## 📁 Power BI Dashboard
 
-Refresh the data and explore!
+You can build your own from `dashboard_summary.csv` or download the `.pbix` file when available.
 
-📌 Note: This analysis uses a sample from MIMIC-III and is meant for educational and prototype purposes. Data is anonymized and access requires credentialed approval via PhysioNet.
+**Steps**:
+- Open Power BI Desktop
+- Import `dashboard_summary.csv`
+- Use slicers, bar charts, and line graphs to visualize ICU trends
 
-Author: Lakshmi Tejaswini Chandra Pampana
-GitHub: @chandraplt1
+---
 
+## 🛑 Caveats
+
+- Only a sample of `CHARTEVENTS.csv` (1M rows) used to optimize performance
+- Age calculation may include noise for extremely old patients
+- Assumes first ICU stay per patient
+
+---
+
+## 👩‍💻 Author
+
+**Lakshmi Tejaswini Chandra Pampana**  
+[GitHub](https://github.com/chandraplt1) | [LinkedIn](https://www.linkedin.com/in/...)
+
+---
+
+> ⚠️ Data from MIMIC-III is under credentialed license. Ensure ethical and compliant use.
