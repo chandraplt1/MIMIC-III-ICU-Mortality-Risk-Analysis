@@ -45,17 +45,6 @@ This project analyzes ICU patient data from the [MIMIC-III](https://physionet.or
 
 ---
 
-## 📈 Dashboard Preview (Power BI)
-
-The Power BI dashboard  contains:
-
-- Mortality by Age Group
-- Gender Distribution & Risk
-- ICU Type Comparison
-- First 24h Heart Rate & BP Analysis
-- Interactive slicers for subgroup analysis
-
----
 
 ## 📦 Getting Started
 
