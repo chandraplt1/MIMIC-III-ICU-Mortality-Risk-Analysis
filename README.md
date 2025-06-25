@@ -20,9 +20,6 @@ This project analyzes ICU patient data from the [MIMIC-III](https://physionet.or
 |------|-------------|
 | `ICU_Mortality_Analysis.ipynb` | Full Jupyter Notebook with data cleaning, EDA, and visual insights |
 | `dashboard_summary.csv` | Cleaned summary file used for Power BI dashboard |
-| `MIMIC_ICU_Mortality.pbix` | Power BI dashboard showing trends and risk segments |
-| `docs/mimic_data_dictionary.md` | Data dictionary explaining key fields |
-| `images/preview.png` | Repository social preview image |
 
 ---
 
