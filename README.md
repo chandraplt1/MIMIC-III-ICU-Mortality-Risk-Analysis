@@ -75,24 +75,6 @@ The Power BI dashboard  contains:
 
 ---
 
-## 📁 Power BI Dashboard
-
-You can build your own from `dashboard_summary.csv` or download the `.pbix` file when available.
-
-**Steps**:
-- Open Power BI Desktop
-- Import `dashboard_summary.csv`
-- Use slicers, bar charts, and line graphs to visualize ICU trends
-
----
-
-## 🛑 Caveats
-
-- Only a sample of `CHARTEVENTS.csv` (1M rows) used to optimize performance
-- Age calculation may include noise for extremely old patients
-- Assumes first ICU stay per patient
-
----
 
 ## 👩‍💻 Author
 
